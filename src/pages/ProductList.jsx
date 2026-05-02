@@ -16,18 +16,19 @@ export default function ProductList() {
     getProduct()
   }, [])
   return (
-    <div className="grid grid-col-4">
+    <div className="grid grid-cols-4 p-5 gap-5">
       {allProducts.map((product) => {
         return (
-          <Card key={product.id} sx={{ maxWidth: 345 }}>
+          <Card className="border border-gray-400 flex flex-col items-center justify-center py-3 px-2"
+           key={product.id} sx={{ maxWidth: 345, borderRadius: '15px' }}>
             <CardMedia
+              sx={{width: '17vw'}}
               component="img"
               alt="green iguana"
-              height="140"
               image={product.thumbnail}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography className="text-center" gutterBottom variant="h5" component="div">
                 {product.title}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>

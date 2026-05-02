@@ -8,17 +8,16 @@ export default function Login() {
     const page = useSelector((state) => state.data.page);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [loginStatus, setLoginStatus] = useState(false);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
-    }, [loginStatus])
+    // useEffect(() => {
+    //     localStorage.setItem('loginStatus', JSON.stringify(loginStatus));
+    // }, [loginStatus])
 
-    useEffect(() => {
-        const storage = JSON.parse(localStorage.getItem('loginStatus'))
-        setLoginStatus(storage);
-    }, [loginStatus])
+    // useEffect(() => {
+    //     const storage = JSON.parse(localStorage.getItem('loginStatus'))
+    //     setLoginStatus(storage);
+    // }, [loginStatus])
 
     const handleSubmit = async () => {
         const res = await fetch('https://dummyjson.com/auth/login', {
@@ -41,9 +40,8 @@ export default function Login() {
             alert("Invalid Credentials")
         }
         if (data.accessToken) {
-            setLoginStatus(true);
+            localStorage.setItem('page', JSON.stringify('productList'));
             dispatch(setPage('productList'));
-            localStorage.setItem('page', JSON.stringify(page));
         }
     }
     return (

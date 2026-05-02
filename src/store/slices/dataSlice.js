@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     page: 'login',
-    allproducts: [],
+    // allproducts: [],
 }
 
 export const dataSlice = createSlice({
@@ -11,7 +11,7 @@ export const dataSlice = createSlice({
     reducers: {
         setPage: (state, action) => {
             state.page = action.payload;
-        }
+        },
     },
 })
 
